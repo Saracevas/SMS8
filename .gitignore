@@ -34,6 +34,10 @@
 /app/phpunit.xml
 /phpunit.xml
 
+# Mac and IDE
+/.idea
+.DS_Store
+
 # Build data
 /build/
 
