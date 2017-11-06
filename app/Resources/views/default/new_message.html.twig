@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SMS8 - New Message{% endblock %}
+
+{% block body %}
+    <h2>New Message</h2>
+    <form method="post" action="#">
+        <div class="field">
+            <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" />
+        </div>
+        <div class="field">
+            <textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+        </div>
+        <ul class="actions">
+            <li><a href="#" class="button">Send</a></li>
+        </ul>
+    </form>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

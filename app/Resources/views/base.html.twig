@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{% block title %}SMS8{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="{{ asset('js/html5shiv.js') }}"></script><![endif]-->
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{ asset('css/ie9.css') }}" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('css/ie8.css') }}" /><![endif]-->
+    <noscript><link rel="stylesheet" href="{{ asset('css/noscript.css') }}" /></noscript>
+</head>
+<body class="is-loading">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <section id="main">
+        {% include 'shared/header.html.twig' with {'loggedIn' : loggedIn } %}
+        {% block body %}{% endblock %}
+        {% include 'shared/footer.html.twig' with {'loggedIn' : loggedIn } %}
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; Sylvester Saracevas</li>
+        </ul>
+    </footer>
+
+</div>
+
+{% block javascript %}{% endblock %}
+
+<!-- Scripts -->
+<!--[if lte IE 8]><script src="{{  asset('js/respond.min.js') }}"></script><![endif]-->
+<script>
+    if ('addEventListener' in window) {
+        window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+        document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+    }
+</script>
+</body>
+</html>
