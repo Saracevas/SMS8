@@ -12,7 +12,6 @@ use PhpAmqpLib\Message\AMQPMessage;
 
 class SendMessageConsumer implements ConsumerInterface
 {
-    private $logger; // Monolog-logger.
 
     // Init:
     public function __construct( )
@@ -23,6 +22,5 @@ class SendMessageConsumer implements ConsumerInterface
     public function execute(AMQPMessage $msg)
     {
         echo "Consumer has completed the job.";
-        // Do something with the data. Save to db, write a log, whatever.
     }
 }

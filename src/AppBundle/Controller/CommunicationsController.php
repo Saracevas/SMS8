@@ -11,14 +11,30 @@ class CommunicationsController extends Controller
 {
     /**
      * @Route("/new", name="new_message")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function newMessageAction(Request $request)
     {
         if ($request->isMethod('POST')) {
-            return $this->render('default/new_message.html.twig', ['loggedIn' => true, 'messageQueued' => true]);
+            return $this->queueMessageAction($request);
         } else {
             return $this->render('default/new_message.html.twig', ['loggedIn' => true, 'messageQueued' => false]);
         }
+    }
+
+    /**
+     * Queue a message.
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    private function queueMessageAction(Request $request)
+    {
+        $msg = array('userid' => 123456);
+        $this->get('old_sound_rabbit_mq.send_message_producer')->publish(serialize($msg));
+
+        return $this->render('default/new_message.html.twig', ['loggedIn' => true, 'messageQueued' => true]);
     }
 
     /**

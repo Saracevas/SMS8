@@ -73,7 +73,7 @@ old_sound_rabbit_mq:
     connections:
         default:
             host:     'localhost'
-            port:     15672
+            port:     5672
             user:     'guest'
             password: 'guest'
             vhost:    '/'
@@ -82,10 +82,10 @@ old_sound_rabbit_mq:
             read_write_timeout: 3
 
             # requires php-amqplib v2.4.1+ and PHP5.4+
-            keepalive: false
+            keepalive: true
 
             # requires php-amqplib v2.4.1+
-            heartbeat: 0
+            heartbeat: 2
 
             #requires php_sockets.dll
             use_socket: true # default false
@@ -100,7 +100,7 @@ old_sound_rabbit_mq:
             connection:       default
             exchange_options: {name: 'send-message', type: direct}
     consumers:
-        upload_picture:
+        send_message:
             connection:       default
             exchange_options: {name: 'send-message', type: direct}
             queue_options:    {name: 'send-message'}
