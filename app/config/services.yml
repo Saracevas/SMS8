@@ -4,6 +4,8 @@ parameters:
     #parameter_name: value
 
 services:
+    send_message:
+      class:      AppBundle\Consumers\SendMessageConsumer
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

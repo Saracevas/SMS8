@@ -3,18 +3,28 @@
 {% block title %}SMS8 - New Message{% endblock %}
 
 {% block body %}
-    <h2>New Message</h2>
-    <form method="post" action="#">
-        <div class="field">
-            <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" />
-        </div>
-        <div class="field">
-            <textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
-        </div>
+
+    {% if messageQueued %}
+        <h2>Message Queued Successfully!</h2>
+        <div><img width="200px" src="http://www.pngmart.com/files/3/Green-Tick-PNG-Pic.png" alt="tick"></div>
         <ul class="actions">
-            <li><a href="#" class="button">Send</a></li>
+            <li><a href="/new" class="button">Send Another</a></li>
         </ul>
-    </form>
+    {% else %}
+        <h2>New Message</h2>
+        <form name="newMessage" method="post">
+            <div class="field">
+                <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" />
+            </div>
+            <div class="field">
+                <textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+            </div>
+            <ul class="actions">
+                <li><a href="#" onclick="document.forms['newMessage'].submit(); return false;" class="button">Send</a></li>
+            </ul>
+        </form>
+    {% endif %}
+    
 {% endblock %}
 
 {% block javascript %}

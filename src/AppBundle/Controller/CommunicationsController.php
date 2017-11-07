@@ -12,10 +12,13 @@ class CommunicationsController extends Controller
     /**
      * @Route("/new", name="new_message")
      */
-    public function newMessageAction()
+    public function newMessageAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/new_message.html.twig', ['loggedIn' => true]);
+        if ($request->isMethod('POST')) {
+            return $this->render('default/new_message.html.twig', ['loggedIn' => true, 'messageQueued' => true]);
+        } else {
+            return $this->render('default/new_message.html.twig', ['loggedIn' => true, 'messageQueued' => false]);
+        }
     }
 
     /**

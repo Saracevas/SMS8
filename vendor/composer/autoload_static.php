@@ -50,6 +50,11 @@ class ComposerStaticInit5367b589050839d9f3e7eb4e6304ec03
             'Psr\\Link\\' => 9,
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
+            'PhpAmqpLib\\' => 11,
+        ),
+        'O' => 
+        array (
+            'OldSound\\RabbitMqBundle\\' => 24,
         ),
         'M' => 
         array (
@@ -173,6 +178,14 @@ class ComposerStaticInit5367b589050839d9f3e7eb4e6304ec03
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'PhpAmqpLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-amqplib/php-amqplib/PhpAmqpLib',
+        ),
+        'OldSound\\RabbitMqBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-amqplib/rabbitmq-bundle',
         ),
         'Monolog\\' => 
         array (
