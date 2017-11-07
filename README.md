@@ -6,6 +6,8 @@ ToDo
 ========================
 - [ ] Authentication
 - [ ] Integrate Twilio API
-- [ ] Implement the queueing system 
+- [x] Implement the queueing system
+- [x] Integrate Doctrine
+- [ ] Integrate Redis
 - [ ] Limit sending of messages to one message every 15 seconds
 - [ ] Log sent text messages

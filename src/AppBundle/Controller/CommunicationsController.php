@@ -17,7 +17,8 @@ class CommunicationsController extends Controller
     public function newMessageAction(Request $request)
     {
         if ($request->isMethod('POST')) {
-            return $this->queueMessageAction($request);
+           $this->queueMessage($request);
+            return $this->render('default/new_message.html.twig', ['loggedIn' => true, 'messageQueued' => true]);
         } else {
             return $this->render('default/new_message.html.twig', ['loggedIn' => true, 'messageQueued' => false]);
         }
@@ -27,14 +28,12 @@ class CommunicationsController extends Controller
      * Queue a message.
      *
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function queueMessageAction(Request $request)
+    private function queueMessage(Request $request)
     {
+
         $msg = array('userid' => 123456);
         $this->get('old_sound_rabbit_mq.send_message_producer')->publish(serialize($msg));
-
-        return $this->render('default/new_message.html.twig', ['loggedIn' => true, 'messageQueued' => true]);
     }
 
     /**
