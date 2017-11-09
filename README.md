@@ -4,7 +4,7 @@ SMS8
 
 ToDo
 ========================
-- [ ] Authentication
+- [x] Authentication
 - [ ] Integrate Twilio API
 - [x] Implement the queueing system
 - [x] Integrate Doctrine
