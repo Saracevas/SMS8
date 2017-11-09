@@ -10,7 +10,7 @@ use Symfony\Component\VarDumper\VarDumper;
 class CommunicationsController extends Controller
 {
     /**
-     * @Route("/new", name="new_message")
+     * @Route("/message/new", name="new_message")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -37,11 +37,11 @@ class CommunicationsController extends Controller
     }
 
     /**
-     * @Route("/history", name="message_history")
+     * @Route("/message/log", name="message_history")
      */
     public function messageHistoryAction()
     {
         // replace this example code with whatever you need
-        return $this->render('default/new_message.html.twig', ['loggedIn' => true]);
+        return $this->render('default/log.html.twig', ['loggedIn' => true]);
     }
 }
