@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * MessageLog
@@ -23,14 +24,15 @@ class MessageLog
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="send_to", type="string", length=100)
      */
     private $sendTo;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max=140)
      * @ORM\Column(name="message", type="string", length=255)
      */
     private $message;
