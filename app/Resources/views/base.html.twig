@@ -17,9 +17,9 @@
 
     <!-- Main -->
     <section id="main">
-        {% include 'shared/header.html.twig' with {'loggedIn' : loggedIn } %}
+        {% include 'shared/header.html.twig' %}
         {% block body %}{% endblock %}
-        {% include 'shared/footer.html.twig' with {'loggedIn' : loggedIn } %}
+        {% include 'shared/footer.html.twig' %}
     </section>
 
     <!-- Footer -->

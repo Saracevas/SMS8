@@ -105,3 +105,11 @@ old_sound_rabbit_mq:
             exchange_options: {name: 'send-message', type: direct}
             queue_options:    {name: 'send-message'}
             callback:         send_message
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"

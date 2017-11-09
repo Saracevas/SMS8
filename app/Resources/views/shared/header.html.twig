@@ -2,15 +2,15 @@
     <a href="{{ path('homepage') }}"><span class="avatar"><img src="{{ asset('images/logo.png') }}" width="150" alt="" /></span></a>
     <a href="{{ path('homepage') }}"><h1>SMS8</h1></a>
     <ul class="menu">
-        {% if loggedIn %}
-            <li><a href="{{ path('homepage') }}">Home</a></li>
-            <li><a href="{{ path('new_message') }}">New</a></li>
-            <li><a href="{{ path('message_history') }}">History</a></li>
-        {% else %}
-            <li><a href="{{ path('homepage') }}">Home</a></li>
-            <li><a href="{{ path('login') }}">Login</a></li>
-            <li><a href="{{ path('register') }}">Register</a></li>
-        {% endif %}
+        {#{% if loggedIn %}#}
+            {#<li><a href="{{ path('homepage') }}">Home</a></li>#}
+            {#<li><a href="{{ path('new_message') }}">New</a></li>#}
+            {#<li><a href="{{ path('message_history') }}">History</a></li>#}
+        {#{% else %}#}
+            {#<li><a href="{{ path('homepage') }}">Home</a></li>#}
+            {#<li><a href="{{ path('login') }}">Login</a></li>#}
+            {#<li><a href="{{ path('register') }}">Register</a></li>#}
+        {#{% endif %}#}
     </ul>
 </header>
 <hr />
