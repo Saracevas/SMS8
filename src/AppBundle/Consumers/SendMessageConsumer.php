@@ -21,6 +21,6 @@ class SendMessageConsumer implements ConsumerInterface
 
     public function execute(AMQPMessage $msg)
     {
-        echo "Consumer has completed the job.";
+        echo "Consumer has completed the " . $msg->body;
     }
 }

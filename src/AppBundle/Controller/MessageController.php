@@ -45,8 +45,7 @@ class MessageController extends Controller
             $em->persist($newMessage);
             $em->flush();
 
-//            $msg = array('userid' => 123456);
-//        $this->get('old_sound_rabbit_mq.send_message_producer')->publish(serialize($msg));
+            $this->get('old_sound_rabbit_mq.send_message_producer')->publish(serialize(['message_id' => $newMessage->getId()]));
 
             return $this->render('default/new_message.html.twig', [
                 'messageQueued' => true
