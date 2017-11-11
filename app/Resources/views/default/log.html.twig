@@ -3,9 +3,24 @@
 {% block title %}SMS8 - Log{% endblock %}
 
 {% block body %}
-    <h2>Welcome to SMS8</h2>
-    <p>Send up to 10 text messages a day for free!</p>
-    <p>No credit card required.</p>
+    {% for message in messages %}
+        <div class="message">
+            <div class="column" style="float: left;">
+                {{ message.sendTo }}
+            </div>
+            <div class="column">
+                <span title="{{ message.message }}">
+                    {{ message.message|length > 20 ? message.message|slice(0, 20) ~ '...' : message.message  }}
+                </span>
+            </div>
+            <div class="column" style="float: right;">
+                {{ message.status }}
+            </div>
+        </div>
+    {% endfor %}
+    {% if messages is empty %}
+        <p>No messages sent.</p>
+    {% endif %}
 {% endblock %}
 
 {% block javascript %}

@@ -60,6 +60,16 @@ class MessageController extends Controller
      */
     public function messageHistoryAction()
     {
-        return $this->render('default/log.html.twig', ['loggedIn' => true]);
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+
+        $query = $qb->select('mg')
+            ->from('AppBundle\Entity\MessageLog', 'mg')
+            ->where('mg.sentBy = :sentBy')
+            ->addOrderBy('mg.sentBy', 'DESC')
+            ->setParameter('sentBy', $this->getUser()->getId())
+            ->getQuery();
+
+        return $this->render('default/log.html.twig', ['messages' => $query->execute()]);
     }
 }

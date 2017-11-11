@@ -871,3 +871,14 @@
 		body.is-ie #wrapper {
 			height: 100%;
 		}
+
+	/* Message */
+		.message {
+			display: block;
+			margin: 5px 2px;
+		}
+
+		.message .column {
+			display: inline;
+			margin: 0 5px;
+		}

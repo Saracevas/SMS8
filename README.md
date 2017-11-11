@@ -11,4 +11,4 @@ ToDo
 - [ ] Integrate Redis
 - [ ] Limit sending of messages to one message every 15 seconds
 - [x] Log sent text messages
-- [ ] Show a list of messages the user has sent
+- [x] Show a list of messages the user has sent
