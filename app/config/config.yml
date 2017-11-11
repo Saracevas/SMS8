@@ -113,3 +113,13 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+
+vresh_twilio:
+    #(Required) Your Account SID from www.twilio.com/user/account
+    sid: 'AC845f74460a0721f96578d18bab1b4783'
+    #(Required) Your Auth Token from www.twilio.com/user/account
+    authToken: '86a02c677c1cf4499f6b9111c686a064'
+    #(Optional, default: '2010-04-01') Twilio API version
+    version: '2010-04-01'
+    #(Optional, default: 1) Number of times to retry failed requests
+    retryAttempts: 3

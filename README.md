@@ -5,9 +5,10 @@ SMS8
 ToDo
 ========================
 - [x] Authentication
-- [ ] Integrate Twilio API
+- [x] Integrate Twilio API
 - [x] Implement the queueing system
 - [x] Integrate Doctrine
 - [ ] Integrate Redis
 - [ ] Limit sending of messages to one message every 15 seconds
-- [ ] Log sent text messages
+- [x] Log sent text messages
+- [ ] Show a list of messages the user has sent
