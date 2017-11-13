@@ -3,9 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\MessageLog;
+use Predis\Client;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Asset\Package;
+use Symfony\Component\Cache\Adapter\RedisAdapter;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -34,7 +36,7 @@ class MessageController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $this->canSendMessage()) {
             $newMessage = $form->getData();
             $newMessage->setSentAt(date_create(date("Y-m-d H:i:s")));
 
@@ -53,6 +55,23 @@ class MessageController extends Controller
             'form' => $form->createView(),
             'messageQueued' => false
         ]);
+    }
+
+    /**
+     * Checks if the user has sent a message in the last 15 seconds and decides if user can send a new message.
+     * @return bool
+     */
+    private function canSendMessage()
+    {
+        $userId = $this->getUser()->getId();
+        /** @var Client $client */
+        $client = RedisAdapter::createConnection('redis://localhost:6379');
+        if ($client->get($userId)) {
+            return false;
+        } else {
+            $client->setex($userId, 15, time());
+            return true;
+        }
     }
 
     /**

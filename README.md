@@ -8,7 +8,7 @@ ToDo
 - [x] Integrate Twilio API
 - [x] Implement the queueing system
 - [x] Integrate Doctrine
-- [ ] Integrate Redis
-- [ ] Limit sending of messages to one message every 15 seconds
+- [x] Integrate Redis
+- [x] Limit sending of messages to one message every 15 seconds
 - [x] Log sent text messages
 - [x] Show a list of messages the user has sent
